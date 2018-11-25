@@ -1,3 +1,4 @@
 fn main() {
-    println!("Hello World!");
+    let x = 42u32;
+    println!("Hello World! {}", x);
 }
