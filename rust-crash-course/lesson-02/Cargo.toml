@@ -1,0 +1,7 @@
+[package]
+name = "rcc-lesson-02"
+version = "0.1.0"
+authors = ["tipeter"]
+edition = "2018"
+
+[dependencies]
