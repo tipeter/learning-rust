@@ -61,4 +61,9 @@ fn main() {
 ]
 dependencies = ["build-win-cargo"]
 
+[tasks.run-win]
+dependencies = ["build-win"]
+command = "cargo"
+args = ["run", "--target=${TARGET}"]
+
 [tasks.package-win]
