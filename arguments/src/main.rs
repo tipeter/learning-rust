@@ -55,11 +55,7 @@ fn get_token_value_pair_2(parstr: &String) -> Result<(&str, u32), ParseError> {
     Err(ParseError::TooManyArgs)
 }
 
-fn foo(in_str: &String) -> &String {
-    in_str
-}
-
-fn parse_args(args: std::env::Args) -> Result<Frame, ParseError> {
+fn parse_args(args: Args) -> Result<Frame, ParseError> {
     match args.len() {
         1...2 => return Err(ParseError::TooFewArgs),
         3 => {
@@ -113,7 +109,14 @@ fn parse_args(args: std::env::Args) -> Result<Frame, ParseError> {
 }
 
 fn main() {
-    let mut st = "width=34".to_string();
+    let mut st = "width=34 height=4d2".to_string();
 
-    println!("{:?}", get_token_value_pair(&st));
+    println!("{:?}", parse_args(std::env::args()));
+
+    let x = ParseError::InvalidInteger("Error van!".to_string());
+
+    println!("{:?}", x);
+    if let ParseError::InvalidInteger(a) = x {
+        println!("{}", a);
+    }
 }
